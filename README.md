@@ -89,7 +89,7 @@ Set a default style for all `SparkView`s in your app's theme:
         <item name="spark_SparkViewStyle">@style/MySparkViewStyle</item>
     </style>
 
-    <style name="MySparkViewStyle" parent="@style/spark_SparkView">
+    <style name="MySparkViewStyle" parent="@style/SparkView">
         <item name="spark_lineColor">@color/line_color</item>
         <item name="spark_lineWidth">@dimen/line_width</item>
         <item name="spark_cornerRadius">@dimen/corner_radius</item>
@@ -147,7 +147,9 @@ just override `getX(int index)` in your `SparkAdapter` to give `SparkView` the c
 
 Animation
 ---------
-To animate path changes, set `app:spark_animateChanges="true"` or call `sparkView.setAnimateChanges(true);`.
+To animate sparkline changes, set an animator with `sparkView.setSparkAnimator(sparkAnimator)`.
+There are two built-in animators: LineSparkAnimator (default) and MorphSparkAnimator. Pass your own
+implementation to achieve custom effects.
 
 Data Boundaries
 ---------------
@@ -184,7 +186,7 @@ Download
 Gradle:
 
 ```groovy
-compile 'com.robinhood.spark:spark:1.1.2'
+implementation 'com.robinhood.spark:spark:1.2.0'
 ```
 
 

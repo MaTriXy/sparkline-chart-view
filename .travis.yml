@@ -4,12 +4,12 @@ android:
   components:
     - platform-tools
     - tools
-    - android-23
-    - build-tools-23.0.3
+    - android-26
+    - build-tools-26.0.3
     - extra-android-m2repository
 
 script:
-  ./gradlew clean check
+  ./gradlew clean check --stacktrace
 
 jdk:
   - oraclejdk8
@@ -24,3 +24,6 @@ before_cache:
 cache:
   directories:
     - $HOME/.gradle
+
+before_install:
+  - yes | sdkmanager "platforms;android-27"
